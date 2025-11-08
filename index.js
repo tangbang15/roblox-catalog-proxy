@@ -2,14 +2,13 @@ import express from "express";
 import fetch from "node-fetch";
 
 const app = express();
-const SECRET_KEY = "my-super-secret-key"; // ตั้งอะไรก็ได้
+const SECRET_KEY = "Skibidi";
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
 
-// ✅ ตรวจสอบ key ก่อนทุก request
 app.use((req, res, next) => {
   if (req.query.key !== SECRET_KEY) {
     return res.status(403).json({ error: "Forbidden" });
